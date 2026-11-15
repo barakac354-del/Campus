@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusTalk - For International Students in China</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+  body{background:#E0E7FF;display:flex;justify-content:center;padding:20px 0}
+  /* PHONE FRAME */
+  .phone{width:390px;min-height:850px;background:#F8FAFC;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.2);position:relative}
+  /* TOP BAR */
+  .topbar{background:#fff;padding:14px 16px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E2E8F0}
+  .logo{font-weight:900;font-size:22px}.logo span{color:#4F46E5}
+  .avatar{width:36px;height:36px;background:#4F46E5;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+  .content{flex:1;padding:16px;overflow-y:auto;padding-bottom:90px}
+  .page{display:none}.page.active{display:block;animation:fade .2s}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  h1{font-size:23px;line-height:1.25}h2{font-size:18px;margin:14px 0 8px}h3{font-size:15px}
+  p{font-size:13px;color:#64748B;line-height:1.5}
+  .hero{background:#4F46E5;color:#fff;border-radius:20px;padding:18px;margin-top:12px}
+  .hero h1{color:#fff}.hero p{color:#E0E7FF;margin:8px 0 12px}
+  .btn{width:100%;padding:13px;border:0;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer}
+  .btn-white{background:#fff;color:#111827}.btn-dark{background:#111827;color:#fff}.btn-purple{background:#4F46E5;color:#fff}.btn-outline{background:#fff;border:1px solid #E2E8F0;color:#111827}
+  .card{background:#fff;border-radius:16px;padding:14px;margin-top:12px;border:1px solid #F1F5F9}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+  .grid .card{margin:0;text-align:left;cursor:pointer}
+  .pill{display:inline-block;background:#EEF2FF;color:#4F46E5;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700;margin:4px 4px 0 0}
+  .input{width:100%;padding:12px;border-radius:12px;border:1px solid #E2E8F0;background:#fff;font-size:14px;margin-top:8px}
+  textarea.input{height:72px;resize:none}
+  .phrase{background:#F1F5F9;padding:12px;border-radius:12px;margin-top:10px}
+  .phrase b{font-size:13px}.chinese{color:#4F46E5;font-size:16px;margin:4px 0}.pinyin{font-size:12px;color:#64748B}
+  .ai-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:16px;padding:14px;margin-top:12px}
+  .ai-msg{background:#fff;border-radius:12px;padding:12px;margin-top:10px}
+  .tag{font-size:11px;background:#DCFCE7;color:#166534;padding:4px 8px;border-radius:20px;font-weight:700}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .history-item{display:flex;gap:10px;align-items:flex-start}
+  .icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  /* BOTTOM NAV */
+  .nav{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #E2E8F0;display:flex;padding:8px 4px 12px}
+  .nav button{flex:1;background:none;border:0;font-size:11px;color:#94A3B8;cursor:pointer;line-height:1.3}
+  .nav button.active{color:#4F46E5;font-weight:800}
+  .nav button span{font-size:20px;display:block}
+  .switch{display:flex;gap:8px;margin-top:10px}.switch button{flex:1;padding:9px;border-radius:10px;border:1px solid #E2E8F0;background:#fff;font-size:12px}.switch button.active{background:#111827;color:#fff}
+  .small{font-size:11px;color:#94A3B8;text-align:center;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="phone">
+  <!-- TOP TITLE BAR -->
+  <div class="topbar"><div class="logo">Campus<span>Talk</span></div><div style="display:flex;gap:8px;align-items:center"><span style="font-size:12px;background:#FEF3C7;padding:6px 8px;border-radius:20px">⭐ 120 pts</span><div class="avatar">BC</div></div></div>
+
+  <div class="content">
+    <!-- PAGE 1: HOME -->
+    <div id="page-home" class="page active">
+      <span class="pill">🇹🇿 For Tanzanian & African Students</span><span class="pill">📍 In China</span>
+      <div class="hero"><p>👋 Ni hao! Welcome, Baraka Carlos</p><h1>Speak Chinese on campus, without fear.</h1><p>AI recommends the right sentence for canteen, dorm & hospital. English ↔ Chinese ↔ Swahili.</p><button class="btn btn-white" onclick="go('translate')">🎤 Translate Now →</button></div>
+      <h2>Who is this for?</h2><div class="card"><b>International students in China</b><p>Especially first-year students from Tanzania and Africa who cannot speak Chinese fluently yet.</p></div>
+      <h2>What can you do? (3 steps only)</h2>
+      <div class="grid">
+        <div class="card" onclick="go('translate')"><div style="font-size:24px">🍜</div><b>Canteen</b><p>Order food, halal / no pork</p></div>
+        <div class="card" onclick="go('translate')"><div style="font-size:24px">🏠</div><b>Dorm</b><p>WiFi, repair, dorm staff</p></div>
+        <div class="card" onclick="go('translate')"><div style="font-size:24px">🏥</div><b>Hospital</b><p>Symptoms, doctor, emergency</p></div>
+        <div class="card" onclick="go('translate')"><div style="font-size:24px">🗺️</div><b>Directions</b><p>Bus, classroom, library</p></div>
+      </div>
+      <div class="card" style="background:#111827;color:#fff"><b style="color:#fff">🎯 Daily Practice - 2 mins</b><p style="color:#CBD5E1">Today: "How much is this?"</p><p style="color:#fff;font-size:16px;margin:6px 0"><b>这个多少钱？</b> Zhège duōshǎo qián?</p><button class="btn btn-white" onclick="alert('Great! +10 points 🎉 You practiced today.')">Practice & Speak 🔊</button></div>
+    </div>
+
+    <!-- PAGE 2: CORE FEATURES / TRANSLATE -->
+    <div id="page-translate" class="page">
+      <h1>Translate in 3 Steps</h1><p>1. Choose a situation → 2. Speak / Type → 3. Get correct sentence</p>
+      <div class="switch"><button class="active" onclick="setScene(this,'Canteen')">🍜 Canteen</button><button onclick="setScene(this,'Dorm')">🏠 Dorm</button><button onclick="setScene(this,'Hospital')">🏥 Hospital</button></div>
+      <div class="card"><b>Step 2 - What do you want to say?</b>
+        <!-- TODO: Connect to real AI API here - replace mockTranslate() with fetch('/api/translate') -->
+        <textarea id="userInput" class="input" placeholder="Try: I want chicken rice, no pork please / I have a fever"></textarea>
+        <select id="lang" class="input"><option>English → Chinese</option><option>Swahili → Chinese</option><option>Chinese → English</option></select>
+        <button class="btn btn-purple" style="margin-top:10px" onclick="mockTranslate()">✨ Get AI Recommendation →</button>
+        <button class="btn btn-outline" style="margin-top:8px" onclick="alert('🎤 Listening... (Demo: Type instead)')">🎤 Speak Instead</button>
+      </div>
+      <div id="translateResult"></div>
+      <h2 id="sceneTitle">Canteen Phrases</h2><div id="phraseList"></div>
+    </div>
+
+    <!-- PAGE 3: AI RESULTS -->
+    <div id="page-ai" class="page">
+      <h1>AI Results</h1><p>AI understands your situation and recommends the best sentence, not word-by-word translation.</p>
+      <div class="ai-box"><b>🤖 AI Analysis</b><div class="ai-msg"><span class="tag">High Confidence 96%</span><p style="margin-top:6px;color:#111827"><b>Situation detected:</b> Canteen - Ordering food</p><p><b>Why this sentence?</b> You said "no pork" + "halal". In China, staff understand "清真" (qīngzhēn) better than "halal". AI added 请 (please) to be polite.</p></div>
+      <div class="ai-msg"><b>✅ Recommended:</b><p class="chinese">我要鸡肉饭，不要猪肉，这是清真的吗？</p><p class="pinyin">Wǒ yào jīròu fàn, bùyào zhūròu, zhè shì qīngzhēn de ma?</p><p style="color:#111827;margin-top:4px">I want chicken rice, no pork, is this halal?</p><div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-purple" style="padding:9px" onclick="alert('Playing audio...')">🔊 Listen</button><button class="btn btn-outline" style="padding:9px" onclick="addToHistory()">⭐ Save to History</button></div></div>
+      <div class="ai-msg"><b>💬 AI Conversation Practice</b><p style="margin-top:6px">AI: 你好！想吃点什么？<br><span style="color:#64748B">Nǐ hǎo! Xiǎng chī diǎn shénme? (Hello! What do you want to eat?)</span></p><p style="margin-top:8px;background:#EEF2FF;padding:8px;border-radius:8px">You: 我要鸡肉饭... ✅ Good! +10 pts</p></div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: HISTORY -->
+    <div id="page-history" class="page">
+      <h1>History & Favorites</h1><p>Your recent translations. Tap ⭐ to save for hospital / emergency.</p>
+      <div id="historyList">
+        <div class="card history-item"><div class="icon" style="background:#FEF3C7">🍜</div><div><b>I want chicken rice, no pork</b><p>我要鸡肉饭，不要猪肉。 • Canteen • Today 12:30</p></div></div>
+        <div class="card history-item"><div class="icon" style="background:#FEE2E2">🏥</div><div><b>I have a fever</b><p>我发烧了。 • Hospital • Yesterday 18:20 • ⭐ Favorite</p></div></div>
+        <div class="card history-item"><div class="icon" style="background:#DBEAFE">🏠</div><div><b>My WiFi is not working</b><p>我的WiFi用不了。 • Dorm • 14 Nov</p></div></div>
+        <div class="card history-item"><div class="icon" style="background:#DCFCE7">🗺️</div><div><b>Where is the library?</b><p>图书馆在哪里？ • Directions • 13 Nov</p></div></div>
+      </div>
+      <button class="btn btn-outline" style="margin-top:12px" onclick="alert('History exported for teacher ✅')">📤 Export History</button>
+    </div>
+
+    <!-- PAGE 5: PROFILE -->
+    <div id="page-profile" class="page">
+      <div class="card" style="text-align:center"><div class="avatar" style="width:64px;height:64px;font-size:22px;margin:0 auto">BC</div><h2 style="margin:8px 0 2px">Baraka Carlos</h2><p>Tanzania • First-year student in China<br>Level: Beginner Chinese • HSK 2</p></div>
+      <h2>Preferences</h2>
+      <div class="card"><div class="row"><span><b>My language</b><p>Swahili + English</p></span><span>›</span></div><hr style="border:0;border-top:1px solid #F1F5F9;margin:10px 0"><div class="row"><span><b>Translate to</b><p>Chinese + Pinyin</p></span><span>›</span></div><hr style="border:0;border-top:1px solid #F1F5F9;margin:10px 0"><div class="row"><span><b>Offline mode</b><p>Save hospital phrases offline</p></span><span style="color:#22C55E;font-weight:800">ON</span></div></div>
+      <h2>Help & Feedback</h2><div class="card"><b>Was the translation correct?</b><p>Tell us if AI made a mistake so we can improve for other students.</p><textarea class="input" placeholder="Example: At hospital, AI said... but staff didn't understand..."></textarea><button class="btn btn-dark" style="margin-top:10px" onclick="alert('Thank you, Baraka! Feedback sent ✅')">Send Feedback</button></div>
+      <p class="small">CampusTalk • Made by Baraka Carlos<br>For international students in China</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="nav">
+    <button class="active" onclick="go('home',this)"><span>🏠</span>Home</button>
+    <button onclick="go('translate',this)"><span>🎤</span>Translate</button>
+    <button onclick="go('ai',this)"><span>🤖</span>AI Results</button>
+    <button onclick="go('history',this)"><span>🕒</span>History</button>
+    <button onclick="go('profile',this)"><span>👤</span>Profile</button>
+  </div>
+</div>
+
+<script>
+const phrases={
+Canteen:[["I want chicken rice, no pork","我要鸡肉饭，不要猪肉。","Wǒ yào jīròu fàn, bùyào zhūròu."],["How much is this?","这个多少钱？","Zhège duōshǎo qián?"],["Is this halal?","这是清真的吗？","Zhè shì qīngzhēn de ma?"]],
+Dorm:[["My WiFi is not working","我的WiFi用不了。","Wǒ de WiFi yòng bù liǎo."],["I need to fix the light","灯坏了，需要修。","Dēng huài le, xūyào xiū."],["Can I get hot water?","可以接热水吗？","Kěyǐ jiē rèshuǐ ma?"]],
+Hospital:[["I have a fever","我发烧了。","Wǒ fāshāo le."],["My stomach hurts","我肚子疼。","Wǒ dùzi téng."],["I need to see a doctor","我想看医生。","Wǒ xiǎng kàn yīshēng."]]
+};
+function go(page,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  if(btn){document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+  window.scrollTo(0,0);
+}
+function setScene(btn,scene){
+  document.querySelectorAll('.switch button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  document.getElementById('sceneTitle').innerText=scene+' Phrases';renderPhrases(scene);
+}
+function renderPhrases(scene){
+  let h='';phrases[scene].forEach(p=>{h+=`<div class="phrase"><b>${p[0]}</b><p class="chinese">${p[1]}</p><p class="pinyin">${p[2]}</p><button class="btn btn-outline" style="padding:8px;margin-top:6px" onclick="alert('Playing: ${p[1]}')">🔊 Listen</button></div>`});
+  document.getElementById('phraseList').innerHTML=h;
+}
+function mockTranslate(){
+  // MOCK AI: In real app, replace with: fetch('https://api.example.com/translate', {method:'POST', body: JSON.stringify({text: input})})
+  let v=document.getElementById('userInput').value.toLowerCase();
+  let out=document.getElementById('translateResult');
+  let result='';
+  if(v.includes('fever')) result='<b>我发烧了。</b><br>Wǒ fāshāo le. - I have a fever.';
+  else if(v.includes('chicken')||v.includes('rice')||v.includes('pork')) result='<b>我要鸡肉饭，不要猪肉，这是清真的吗？</b><br>Wǒ yào jīròu fàn, bùyào zhūròu, zhè shì qīngzhēn de ma?';
+  else if(v) result='<b>请帮帮我，我是留学生。</b><br>Qǐng bāngbang wǒ, wǒ shì liúxuéshēng. - Please help me, I am an international student.';
+  else result='Please type something first.';
+  out.innerHTML=`<div class="ai-box"><b>🤖 AI Recommendation</b><div class="ai-msg">${result}<p style="margin-top:8px">Why? AI chose polite + campus version, not word-by-word.</p><button class="btn btn-purple" style="padding:10px;margin-top:8px" onclick="go('ai')">See Full AI Analysis →</button></div></div>`;
+}
+function addToHistory(){alert('Saved to History ⭐');go('history');}
+renderPhrases('Canteen');
+</script>
+</body>
+</html>
